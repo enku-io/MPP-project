@@ -2,6 +2,7 @@ package util;
 
 import dataaccess.*;
 import dataaccess.view.BookView;
+import dataaccess.view.LibraryMemberView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -24,6 +25,16 @@ public class DataConversion {
 
     }
 
+    public static ObservableList<LibraryMemberView> getLibraryMembersView(Person person){
+        return FXCollections.observableArrayList(person.getPersonRole().libraryMemberList().stream()
+                .map(libraryMember -> new LibraryMemberView(libraryMember.getFirstName(),
+                        libraryMember.getLastName(), libraryMember.getPhoneNumber(),
+                        libraryMember.getAddress().getStreet() + ", " + libraryMember.getAddress().getCity() +
+                        ", " + libraryMember.getAddress().getState())).collect(Collectors.toList()));
+
+    }
+
+    //TODO remove this
     public static void testData() {
         Admin admin = new Admin();
 
@@ -54,7 +65,9 @@ public class DataConversion {
         Storage.books.put(book1.getIsbn(), book1);
         Storage.books.put(book2.getIsbn(), book2);
 
+        Person person = new Person("ajhsgd", "ahjsgdhjas", new Admin());
 
+        getBookListView(person).forEach(bookView -> System.out.println(bookView));
     }
 
 

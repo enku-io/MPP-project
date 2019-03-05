@@ -1,16 +1,17 @@
 package dataaccess.view;
 
+/**
+ * Created by Mekuanent Kassaye on 2019-03-05.
+ */
 public class LibraryMemberView {
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
-    private String Address;
+
+    public String firstName, lastName, phoneNumber, address;
 
     public LibraryMemberView(String firstName, String lastName, String phoneNumber, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        Address = address;
+        this.address = address;
     }
 
     public String getFirstName() {
@@ -38,10 +39,10 @@ public class LibraryMemberView {
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 }

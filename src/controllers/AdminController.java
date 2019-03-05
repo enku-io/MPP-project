@@ -29,7 +29,7 @@ public class AdminController {
     @FXML
     Button addBookCopyButton;
     @FXML
-    TableView<LibraryMember> memberTableView;
+    TableView<LibraryMemberView> memberTableView;
     @FXML
     TableView<BookView> bookTableView;
     @FXML
@@ -69,7 +69,7 @@ public class AdminController {
         addressColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("address"));
 
         bookTableView.setItems(DataConversion.getBookListView(Storage.session));
-//        memberTableView.setItems(DataConversion.get)
+        memberTableView.setItems(DataConversion.getLibraryMembersView(Storage.session));
     }
 
     @FXML
