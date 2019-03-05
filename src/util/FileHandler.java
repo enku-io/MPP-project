@@ -1,16 +1,13 @@
 package util;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 /**
  * Created by Mekuanent Getachew on 2019-03-05.
  */
 public class FileHandler {
 
-    public static final String ROOT_DIR = "";
+    public static final String STORAGE_DIR = "./storage/";
 
     public static final String LIBRARY_MEMBER_FNAME = "LibraryMembers.ser";
     public static final String BOOKS_FNAME = "Books.ser";
@@ -23,7 +20,7 @@ public class FileHandler {
         ObjectOutputStream objectOutputStream = null;
 
         try{
-            fileOutputStream = new FileOutputStream(fileName);
+            fileOutputStream = new FileOutputStream(STORAGE_DIR + fileName);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(object);
             objectOutputStream.close();
@@ -39,7 +36,7 @@ public class FileHandler {
         ObjectInputStream objectInputStream = null;
 
         try {
-            fileInputStream = new FileInputStream(fileName);
+            fileInputStream = new FileInputStream(STORAGE_DIR+ fileName);
             objectInputStream = new ObjectInputStream(fileInputStream);
             Object obj = objectInputStream.readObject();
             objectInputStream.close();
@@ -48,7 +45,12 @@ public class FileHandler {
                 return defaultObject;
 
             return (E)obj;
-        }catch (Exception e){
+        }catch (FileNotFoundException ex){
+            System.out.println("File Not Found, proceeding with default data.\nResource files will be " +
+                    "regenerated on next restart");
+            return defaultObject;
+        }
+        catch (Exception e){
             e.printStackTrace();
             return defaultObject;
         }

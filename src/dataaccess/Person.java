@@ -2,7 +2,9 @@ package dataaccess;
 
 import util.Storage;
 
-public class Person{
+import java.io.Serializable;
+
+public class Person implements Serializable {
 
     private String username;
     private String password;

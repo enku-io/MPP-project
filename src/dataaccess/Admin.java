@@ -2,6 +2,7 @@ package dataaccess;
 
 import util.Storage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class Admin extends PersonRole{
+public class Admin extends PersonRole implements Serializable {
 
     @Override
     public List<LibraryMember> libraryMemberList(){
