@@ -1,5 +1,6 @@
 package controllers;
 
+import dataaccess.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,8 @@ public class LoginController {
             usernameErrorLabel.setVisible(true);
         }else if(passwordField.getText().isEmpty()){
             passwordErrorLabel.setVisible(true);
+        }else if(Person.login(nameTextField.getText().trim(),passwordField.getText().trim()) == null){
+            usernameErrorLabel.setText("Username or Password not found");
         }else{
             Parent root;
             try {

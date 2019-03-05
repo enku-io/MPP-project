@@ -64,7 +64,7 @@ public class AdminController {
     private void addMemberEvent(ActionEvent event){
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/add_member.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/new_member.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Member");
             stage.setScene(new Scene(root, 450, 450));
