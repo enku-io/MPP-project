@@ -13,14 +13,14 @@ public class Book{
     private List<BookAuthor> authors = new ArrayList<>();
     private List<BookCopy> bookCopies = new ArrayList<>();
 
-    public Book(int isbn, String title, List<BookAuthor> authors, boolean isAvailable, List<BookCopy> bookCopies) {
+    public Book(int isbn, String title, List<BookAuthor> authors, List<BookCopy> bookCopies) {
         this.isbn = isbn;
         this.title = title;
         this.authors = authors;
         this.bookCopies = bookCopies;
     }
 
-    public Book(int isbn, String title, boolean isAvailable) {
+    public Book(int isbn, String title) {
         this.isbn = isbn;
         this.title = title;
     }
