@@ -1,15 +1,12 @@
-import dataaccess.Person;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import util.Storage;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Mekuanent Kassaye on 2019-03-05.
  */
-public class UserManagementTest {
+public class StorageTest {
 
     @Before
     public void setUp() throws Exception {
@@ -22,9 +19,8 @@ public class UserManagementTest {
     }
 
     @Test
-    public void LoginSuccessTest(){
-        Person person = Person.login("aman", "1234");
-        assertEquals("admin", person.getPersonRole().getRole());
+    public void persistenceTest() {
+
     }
 
 }

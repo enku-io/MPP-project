@@ -3,6 +3,7 @@ package dataaccess;
 import com.sun.istack.internal.NotNull;
 import util.Storage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class Librarian extends PersonRole {
+public class Librarian extends PersonRole implements Serializable {
 
     @Override
     public List<Book> bookList(){
