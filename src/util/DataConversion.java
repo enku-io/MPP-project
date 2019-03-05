@@ -24,7 +24,7 @@ public class DataConversion {
 
     }
 
-    private static void testData() {
+    public static void testData() {
         Admin admin = new Admin();
 
         BookAuthor author1 = new BookAuthor("Joan", "hasgd", "+251215", "asdha", "asdgjhasghd", null);
@@ -54,9 +54,7 @@ public class DataConversion {
         Storage.books.put(book1.getIsbn(), book1);
         Storage.books.put(book2.getIsbn(), book2);
 
-        Person person = new Person("ajhsgd", "ahjsgdhjas", new Admin());
 
-        getBookListView(person).forEach(bookView -> System.out.println(bookView));
     }
 
 

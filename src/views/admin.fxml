@@ -58,8 +58,10 @@
                                              <children>
                                                 <TableView fx:id="memberTableView" layoutX="7.0" prefHeight="435.0" prefWidth="590.0">
                                                   <columns>
-                                                    <TableColumn prefWidth="75.0" text="C1" />
-                                                    <TableColumn prefWidth="75.0" text="C2" />
+                                                    <TableColumn fx:id="firstNameColumn" prefWidth="150.0" text="First Name" />
+                                                    <TableColumn fx:id="lastNameColumn" minWidth="0.0" prefWidth="154.0" text="Last Name" />
+                                                      <TableColumn fx:id="phoneNumberColumn" prefWidth="122.0" text="Phone Number" />
+                                                      <TableColumn fx:id="addressColumn" minWidth="0.0" prefWidth="162.0" text="Address" />
                                                   </columns>
                                                 </TableView>
                                              </children>
