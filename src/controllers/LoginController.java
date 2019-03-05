@@ -36,9 +36,11 @@ public class LoginController {
             Parent root;
             try {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("views/admin.fxml"));
+
                 Stage stage = new Stage();
                 stage.setTitle("Library System");
                 stage.setScene(new Scene(root, 450, 450));
+
                 stage.show();
                 ((Node)(action.getSource())).getScene().getWindow().hide();
             }
