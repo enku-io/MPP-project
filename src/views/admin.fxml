@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="536.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+   <children>
+      <SplitPane dividerPositions="0.1945945945945946" prefHeight="536.0" prefWidth="742.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.18796992481203006" orientation="VERTICAL" prefHeight="534.0" prefWidth="140.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Button fx:id="addMemberButton" mnemonicParsing="false" onAction="#addMemberEvent" prefHeight="55.0" prefWidth="138.0" text="Add Member" />
+                              <Button layoutY="62.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="138.0" text="List Members" />
+                              <Button layoutY="125.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="138.0" text="List Books" />
+                              <Button layoutY="187.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="138.0" text="Add Book" />
+                              <Button fx:id="addBookButton" layoutY="250.0" mnemonicParsing="false" onAction="#addBooksEvent" text="Add Book Copy" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.11090225563909774" orientation="VERTICAL" prefHeight="534.0" prefWidth="592.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="42.0" layoutY="33.0" text="Users" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView layoutX="-1.0" layoutY="-1.0" prefHeight="469.0" prefWidth="590.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddBookController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </AnchorPane>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="267.0" minWidth="10.0" prefWidth="170.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="462.0" minWidth="10.0" prefWidth="380.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <BorderPane.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="ISBN" textAlignment="RIGHT" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="title" textAlignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="authors" textAlignment="RIGHT" GridPane.rowIndex="2" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="maximum checkout length" textAlignment="RIGHT" GridPane.rowIndex="3" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="number of copies" textAlignment="RIGHT" GridPane.rowIndex="4" />
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="228.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <Label text="Add A Book" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
