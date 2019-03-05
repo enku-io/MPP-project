@@ -23,9 +23,6 @@ public class Storage {
 
     private static DataClass dataClass = new DataClass();
 
-    public static Person admin = new Person("aman", "1234", new Admin());
-    public static Person librarian = new Person("enku", "4321", new Librarian());
-
     public static List<Person> users = new ArrayList<>();
 
     public static Person session;

@@ -8,6 +8,11 @@ public class BookCopy{
     private int id;
     private boolean available;
 
+    public BookCopy(int id, boolean available) {
+        this.id = id;
+        this.available = available;
+    }
+
     public boolean isAvailable() {
         return available;
     }
