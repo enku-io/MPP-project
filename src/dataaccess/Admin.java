@@ -11,14 +11,17 @@ import java.util.List;
  */
 public class Admin extends PersonRole{
 
+    @Override
     public List<LibraryMember> libraryMemberList(){
         return new ArrayList<>(Storage.libraryMembers.values());
     }
 
+    @Override
     public List<Book> bookList(){
         return new ArrayList<>(Storage.books.values());
     }
 
+    @Override
     public boolean addLibraryMembers(LibraryMember... libraryMember){
         Arrays.stream(libraryMember).forEach(member -> {
             int id = Storage.getNextLibraryMemberId();
@@ -27,6 +30,7 @@ public class Admin extends PersonRole{
         return true;
     }
 
+    @Override
     public boolean editLibraryMember(int id, LibraryMember libraryMember){
         if(!Storage.libraryMembers.containsKey(id))
             return false;
@@ -35,6 +39,7 @@ public class Admin extends PersonRole{
         return true;
     }
 
+    @Override
     public boolean removeLibraryMember(int id){
         if(!Storage.libraryMembers.containsKey(id))
             return false;
@@ -42,6 +47,7 @@ public class Admin extends PersonRole{
         return true;
     }
 
+    @Override
     public boolean addBooks(Book... books){
         Arrays.stream(books).forEach(book -> {
             book.getAuthors().forEach(author -> {
@@ -53,6 +59,7 @@ public class Admin extends PersonRole{
         return true;
     }
 
+    @Override
     public boolean addBookCopiesToBook(int bookId, BookCopy... bookCopies){
         if(!Storage.books.containsKey(bookId))
             return false;
@@ -61,4 +68,8 @@ public class Admin extends PersonRole{
         return true;
     }
 
+    @Override
+    public String getRole() {
+        return PersonRole.ADMIN_ROLE;
+    }
 }

@@ -11,21 +11,18 @@ public class Book{
     private int isbn;
     private String title;
     private List<BookAuthor> authors = new ArrayList<>();
-    private boolean isAvailable;
     private List<BookCopy> bookCopies = new ArrayList<>();
 
     public Book(int isbn, String title, List<BookAuthor> authors, boolean isAvailable, List<BookCopy> bookCopies) {
         this.isbn = isbn;
         this.title = title;
         this.authors = authors;
-        this.isAvailable = isAvailable;
         this.bookCopies = bookCopies;
     }
 
     public Book(int isbn, String title, boolean isAvailable) {
         this.isbn = isbn;
         this.title = title;
-        this.isAvailable = isAvailable;
     }
 
     public List<BookAuthor> getAuthors() {
@@ -60,11 +57,4 @@ public class Book{
         this.title = title;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
 }

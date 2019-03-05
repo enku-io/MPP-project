@@ -6,6 +6,15 @@ package dataaccess;
 public class BookCopy{
 
     private int id;
+    private boolean available;
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 
     public int getId() {
         return id;
