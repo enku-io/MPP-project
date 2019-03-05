@@ -1,8 +1,7 @@
 package controllers;
 
-import dataaccess.Book;
 import dataaccess.LibraryMember;
-import dataaccess.Test;
+import dataaccess.view.BookView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +28,7 @@ public class AdminController {
     @FXML
     TableView<LibraryMember> memberTableView;
     @FXML
-    TableView<Test> bookTableView;
+    TableView<BookView> bookTableView;
     @FXML
     TableColumn isbnColumn;
     @FXML
@@ -41,22 +40,23 @@ public class AdminController {
     @FXML
     TableColumn copiesColumn;
 
-    private ObservableList<Test> data;
+    private ObservableList<BookView> data;
 
     @FXML
     public void initialize(){
         data = FXCollections.observableArrayList(
-                new Test("123123123", "Smith", "true",5),
-                new Test("asdf", "Smveith", "true",5),
-                new Test("asefedf", "efe", "true",5),
-                new Test("efe", "ef", "true",5),
-                new Test("asdf", "fe", "true",5)
+                new BookView("123123123", "Smith", "abebe","true",5),
+                new BookView("asdf", "Smveith","abebe", "true",5),
+                new BookView("asefedf", "efe", "abebe","true",5),
+                new BookView("efe", "ef", "abebe","true",5),
+                new BookView("asdf", "fe","abebe", "true",5)
         );
 
-        isbnColumn.setCellValueFactory(new PropertyValueFactory<Test,String>("isbn"));
-        authorColumn.setCellValueFactory(new PropertyValueFactory<Test,String>("author"));
-        isAvailableColumn.setCellValueFactory(new PropertyValueFactory<Test,String>("isAvailable"));
-        copiesColumn.setCellValueFactory(new PropertyValueFactory<Test,Number>("copies"));
+        isbnColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isbn"));
+        titleColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("title"));
+        authorColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("author"));
+        isAvailableColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isAvailable"));
+        copiesColumn.setCellValueFactory(new PropertyValueFactory<BookView,Number>("copies"));
         bookTableView.setItems(data);
     }
 
