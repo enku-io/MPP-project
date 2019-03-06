@@ -1,9 +1,11 @@
 package dataaccess.view;
 
+import java.io.Serializable;
+
 /**
  * Created by Mekuanent Kassaye on 2019-03-05.
  */
-public class LibraryMemberView {
+public class LibraryMemberView implements Serializable {
 
     public String firstName, lastName, phoneNumber, address;
 

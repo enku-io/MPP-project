@@ -1,9 +1,11 @@
 package dataaccess;
 
+import java.io.Serializable;
+
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class BookCopy{
+public class BookCopy implements Serializable {
 
     private int id;
     private boolean available;

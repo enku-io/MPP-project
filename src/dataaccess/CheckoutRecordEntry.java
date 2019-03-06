@@ -1,11 +1,12 @@
 package dataaccess;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class CheckoutRecordEntry{
+public class CheckoutRecordEntry implements Serializable {
 
     private BookCopy bookCopy;
     private Date checkoutDate, dueDate;

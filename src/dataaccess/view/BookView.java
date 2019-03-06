@@ -1,6 +1,8 @@
 package dataaccess.view;
 
-public class BookView {
+import java.io.Serializable;
+
+public class BookView implements Serializable {
 
     private String title;
     private String isbn;

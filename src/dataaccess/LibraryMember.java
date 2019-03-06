@@ -1,9 +1,11 @@
 package dataaccess;
 
+import java.io.Serializable;
+
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class LibraryMember{
+public class LibraryMember implements Serializable {
 
     private int id;
     private String firstName, lastName, phoneNumber;
