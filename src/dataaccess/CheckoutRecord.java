@@ -1,12 +1,13 @@
 package dataaccess;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class CheckoutRecord {
+public class CheckoutRecord implements Serializable {
 
     private List<CheckoutRecordEntry> entries = new ArrayList<>();
     private LibraryMember libraryMember;

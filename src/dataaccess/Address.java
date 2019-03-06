@@ -1,9 +1,11 @@
 package dataaccess;
 
+import java.io.Serializable;
+
 /**
  * Created by Mekuanent Kassaye on 2019-03-04.
  */
-public class Address{
+public class Address implements Serializable {
 
     private String street, city, state, zip;
 

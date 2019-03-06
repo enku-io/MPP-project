@@ -19,13 +19,19 @@ public class Librarian extends PersonRole implements Serializable {
     }
 
     @Override
-    public boolean checkout(int libraryMemberId, @NotNull BookCopy bookCopy, Date dueDate){
-        if(bookCopy.isAvailable()){
-            CheckoutRecord checkoutRecord = Storage.checkoutRecords.get(libraryMemberId);
-            bookCopy.setAvailable(false);
-            checkoutRecord.getEntries().add(new CheckoutRecordEntry(bookCopy, new Date(), dueDate));
-            return true;
+    public boolean checkout(int libraryMemberId, int isbn, Date dueDate){
+
+        if(Storage.books.containsKey(isbn)){
+            Book book = Storage.books.get(isbn);
+            BookCopy copy = book.getBookCopies().stream().filter(BookCopy::isAvailable).findFirst().orElse(null);
+            if(copy != null){
+                CheckoutRecord checkoutRecord = Storage.checkoutRecords.get(libraryMemberId);
+                copy.setAvailable(false);
+                checkoutRecord.getEntries().add(new CheckoutRecordEntry(copy, new Date(), dueDate));
+                return true;
+            }
         }
+
         return false;
     }
 
