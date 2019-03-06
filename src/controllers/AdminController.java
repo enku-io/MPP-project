@@ -2,6 +2,7 @@ package controllers;
 
 import dataaccess.LibraryMember;
 import dataaccess.view.BookView;
+import dataaccess.view.LibraryMemberView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import util.DataConversion;
+import util.Storage;
 
 import java.io.IOException;
 
@@ -26,7 +29,7 @@ public class AdminController {
     @FXML
     Button addBookCopyButton;
     @FXML
-    TableView<LibraryMember> memberTableView;
+    TableView<LibraryMemberView> memberTableView;
     @FXML
     TableView<BookView> bookTableView;
     @FXML
@@ -40,31 +43,40 @@ public class AdminController {
     @FXML
     TableColumn copiesColumn;
 
+    @FXML
+    TableColumn firstNameColumn;
+    @FXML
+    TableColumn lastNameColumn;
+    @FXML
+    TableColumn phoneNumberColumn;
+    @FXML
+    TableColumn addressColumn;
     private ObservableList<BookView> data;
 
     @FXML
     public void initialize(){
-        data = FXCollections.observableArrayList(
-                new BookView("123123123", "Smith", "abebe","true",5),
-                new BookView("asdf", "Smveith","abebe", "true",5),
-                new BookView("asefedf", "efe", "abebe","true",5),
-                new BookView("efe", "ef", "abebe","true",5),
-                new BookView("asdf", "fe","abebe", "true",5)
-        );
 
+        DataConversion.testData();
         isbnColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("author"));
         isAvailableColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isAvailable"));
         copiesColumn.setCellValueFactory(new PropertyValueFactory<BookView,Number>("copies"));
-        bookTableView.setItems(data);
+
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("firstName"));
+        lastNameColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("lastName"));
+        phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("phoneNumber"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("address"));
+
+        bookTableView.setItems(DataConversion.getBookListView(Storage.session));
+        memberTableView.setItems(DataConversion.getLibraryMembersView(Storage.session));
     }
 
     @FXML
     private void addMemberEvent(ActionEvent event){
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/add_member.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/new_member.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Member");
             stage.setScene(new Scene(root, 450, 450));

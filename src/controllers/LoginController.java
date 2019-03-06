@@ -1,5 +1,7 @@
 package controllers;
 
+import dataaccess.Person;
+import dataaccess.PersonRole;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,25 +30,46 @@ public class LoginController {
 
     @FXML
     private void handleButtonAction(ActionEvent action){
+        Person person = Person.login(nameTextField.getText().trim(),passwordField.getText().trim());
         if(nameTextField.getText().isEmpty()) {
             usernameErrorLabel.setVisible(true);
         }else if(passwordField.getText().isEmpty()){
             passwordErrorLabel.setVisible(true);
+        }else if(person == null){
+            usernameErrorLabel.setText("Username or Password not found");
         }else{
-            Parent root;
-            try {
-                root = FXMLLoader.load(getClass().getClassLoader().getResource("views/admin.fxml"));
+            if(person.getPersonRole().getRole() == PersonRole.ADMIN_ROLE){
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("views/admin.fxml"));
 
-                Stage stage = new Stage();
-                stage.setTitle("Library System");
-                stage.setScene(new Scene(root, 450, 450));
+                    Stage stage = new Stage();
+                    stage.setTitle("Library System - Admin");
+                    stage.setScene(new Scene(root, 450, 450));
 
-                stage.show();
-                ((Node)(action.getSource())).getScene().getWindow().hide();
+                    stage.show();
+                    ((Node)(action.getSource())).getScene().getWindow().hide();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else{
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("views/librarian.fxml"));
+
+                    Stage stage = new Stage();
+                    stage.setTitle("Library System - Librarian");
+                    stage.setScene(new Scene(root, 450, 450));
+
+                    stage.show();
+                    ((Node)(action.getSource())).getScene().getWindow().hide();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 
