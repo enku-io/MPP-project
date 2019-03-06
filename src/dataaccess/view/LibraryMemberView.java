@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class LibraryMemberView implements Serializable {
 
-    public String firstName, lastName, phoneNumber, address;
+    private String firstName, lastName, phoneNumber, address;
 
     public LibraryMemberView(String firstName, String lastName, String phoneNumber, String address) {
         this.firstName = firstName;
