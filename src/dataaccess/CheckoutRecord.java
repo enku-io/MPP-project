@@ -12,6 +12,10 @@ public class CheckoutRecord implements Serializable {
     private List<CheckoutRecordEntry> entries = new ArrayList<>();
     private LibraryMember libraryMember;
 
+    public CheckoutRecord(LibraryMember libraryMember) {
+        this.libraryMember = libraryMember;
+    }
+
     /**
      * @return the entries
      */

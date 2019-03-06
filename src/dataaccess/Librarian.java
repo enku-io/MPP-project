@@ -25,7 +25,21 @@ public class Librarian extends PersonRole implements Serializable {
             Book book = Storage.books.get(isbn);
             BookCopy copy = book.getBookCopies().stream().filter(BookCopy::isAvailable).findFirst().orElse(null);
             if(copy != null){
-                CheckoutRecord checkoutRecord = Storage.checkoutRecords.get(libraryMemberId);
+                CheckoutRecord checkoutRecord;
+                if(Storage.checkoutRecords.containsKey(libraryMemberId))
+                    checkoutRecord = Storage.checkoutRecords.get(libraryMemberId);
+                else{
+                    if(Storage.libraryMembers.containsKey(libraryMemberId)){
+                        LibraryMember member = Storage.libraryMembers.get(libraryMemberId);
+                        checkoutRecord = new CheckoutRecord(member);
+                        Storage.checkoutRecords.put(libraryMemberId, checkoutRecord);
+                    }else {
+                        System.out.println("Library Member does not exist!");
+                        return false;
+                    }
+
+                }
+
                 copy.setAvailable(false);
                 checkoutRecord.getEntries().add(new CheckoutRecordEntry(copy, new Date(), dueDate));
                 return true;
@@ -34,6 +48,17 @@ public class Librarian extends PersonRole implements Serializable {
 
         return false;
     }
+
+    public LibraryMember getRecordByMemberId(int libraryMemberId){
+        if(Storage.checkoutRecords.containsKey(libraryMemberId)){
+
+            return null;
+        }else{
+            System.out.println("Record don't exist");
+            return null;
+        }
+    }
+
 
     @Override
     public String getRole() {

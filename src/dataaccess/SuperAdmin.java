@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by Mekuanent Getachew on 2019-03-05.
+ * Created by Mekuanent Kassaye on 2019-03-05.
  */
 public class SuperAdmin extends Admin implements Serializable {
 
@@ -20,7 +20,7 @@ public class SuperAdmin extends Admin implements Serializable {
 
     @Override
     public String getRole() {
-        return PersonRole.LIBRARIAN_ROLE;
+        return PersonRole.SUPER_ADMIN_ROLE;
     }
 
 }

@@ -55,6 +55,10 @@ public class Admin extends PersonRole implements Serializable {
                 author.setId(Storage.getNextBookAuthorId());
             });
 
+            book.getBookCopies().forEach(bookCopy -> {
+                bookCopy.setBook(book);
+            });
+
             Storage.books.put(book.getIsbn(), book);
         });
         return true;
@@ -65,6 +69,9 @@ public class Admin extends PersonRole implements Serializable {
         if(!Storage.books.containsKey(bookId))
             return false;
         Book book = Storage.books.get(bookId);
+        Arrays.stream(bookCopies).forEach(bookCopy -> {
+            bookCopy.setBook(book);
+        });
         book.setBookCopies(Arrays.asList(bookCopies));
         return true;
     }
