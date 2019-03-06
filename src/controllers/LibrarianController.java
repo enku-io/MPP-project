@@ -47,7 +47,7 @@ public class LibrarianController {
     private void checkoutEvent(ActionEvent event){
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/checkout_book.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/checkout_books.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Checkout Book");
             stage.setScene(new Scene(root, 450, 450));
