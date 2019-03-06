@@ -13,8 +13,8 @@ public class SuperAdmin extends Admin {
     private Librarian librarian = new Librarian();
 
     @Override
-    public boolean checkout(int libraryMemberId, @NotNull BookCopy bookCopy, Date dueDate){
-        return librarian.checkout(libraryMemberId, bookCopy, dueDate);
+    public boolean checkout(int libraryMemberId, int isbn, Date dueDate){
+        return librarian.checkout(libraryMemberId, isbn, dueDate);
     }
 
     @Override

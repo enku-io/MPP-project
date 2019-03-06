@@ -45,7 +45,7 @@ public abstract class PersonRole implements Serializable {
         return false;
     }
 
-    public boolean checkout(int libraryMemberId, @NotNull BookCopy bookCopy, Date dueDate){
+    public boolean checkout(int libraryMemberId, int isbn, Date dueDate){
         return false;
     }
 
