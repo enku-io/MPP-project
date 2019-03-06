@@ -29,7 +29,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <BorderPane.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
@@ -38,17 +37,15 @@
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="ISBN" textAlignment="RIGHT" />
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="Title" textAlignment="RIGHT" GridPane.rowIndex="1" />
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="Author First Name" textAlignment="RIGHT" GridPane.rowIndex="2" />
-                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" nodeOrientation="LEFT_TO_RIGHT" text="Number of Copies" textAlignment="RIGHT" GridPane.rowIndex="5" />
                   <TextField fx:id="isbn" GridPane.columnIndex="1" />
                   <TextField fx:id="title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="authorFirstName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="numberOfCopies" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button fx:id="addBook" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addBookEvent" prefHeight="27.0" prefWidth="228.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Button fx:id="addBook" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addBookEvent" prefHeight="27.0" prefWidth="228.0" text="Add Book" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label text="Author Last Name" GridPane.rowIndex="3" />
                   <Label text="Author Bio" GridPane.rowIndex="4" />
                   <TextField fx:id="authorLastName" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="authorBio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label fx:id="errorLabel" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label fx:id="errorLabel" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </center>
