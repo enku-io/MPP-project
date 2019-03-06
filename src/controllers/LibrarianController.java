@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import util.DataConversion;
 import util.Storage;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 
 public class LibrarianController {
@@ -32,6 +33,8 @@ public class LibrarianController {
     TableColumn isAvailableColumn;
     @FXML
     TableColumn copiesColumn;
+    @FXML
+    Button logoutButton;
 
     @FXML
     public void initialize(){
@@ -41,6 +44,7 @@ public class LibrarianController {
         isAvailableColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isAvailable"));
         copiesColumn.setCellValueFactory(new PropertyValueFactory<BookView,Number>("copies"));
         tableView.setItems(DataConversion.getBookListView(Storage.session));
+
     }
 
     @FXML
@@ -50,6 +54,21 @@ public class LibrarianController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("views/checkout_books.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Checkout Book");
+            stage.setScene(new Scene(root, 450, 450));
+            stage.show();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void handleLogout(ActionEvent event){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/login.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add Book");
             stage.setScene(new Scene(root, 450, 450));
             stage.show();
             ((Node)(event.getSource())).getScene().getWindow().hide();

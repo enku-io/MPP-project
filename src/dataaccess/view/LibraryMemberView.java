@@ -7,13 +7,22 @@ import java.io.Serializable;
  */
 public class LibraryMemberView implements Serializable {
 
-    private String firstName, lastName, phoneNumber, address;
+    public String id, firstName, lastName, phoneNumber, address;
 
-    public LibraryMemberView(String firstName, String lastName, String phoneNumber, String address) {
+    public LibraryMemberView(String id, String firstName, String lastName, String phoneNumber, String address) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

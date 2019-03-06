@@ -27,7 +27,7 @@ public class DataConversion {
 
     public static ObservableList<LibraryMemberView> getLibraryMembersView(Person person){
         return FXCollections.observableArrayList(person.getPersonRole().libraryMemberList().stream()
-                .map(libraryMember -> new LibraryMemberView(libraryMember.getFirstName(),
+                .map(libraryMember -> new LibraryMemberView(String.valueOf(libraryMember.getId()),libraryMember.getFirstName(),
                         libraryMember.getLastName(), libraryMember.getPhoneNumber(),
                         libraryMember.getAddress().getStreet() + ", " + libraryMember.getAddress().getCity() +
                         ", " + libraryMember.getAddress().getState())).collect(Collectors.toList()));

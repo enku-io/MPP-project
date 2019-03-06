@@ -51,6 +51,10 @@ public class AdminController {
     TableColumn phoneNumberColumn;
     @FXML
     TableColumn addressColumn;
+    @FXML
+    TableColumn idColumn;
+    @FXML
+    Button logoutButton;
     private ObservableList<BookView> data;
 
     @FXML
@@ -63,13 +67,18 @@ public class AdminController {
         isAvailableColumn.setCellValueFactory(new PropertyValueFactory<BookView,String>("isAvailable"));
         copiesColumn.setCellValueFactory(new PropertyValueFactory<BookView,Number>("copies"));
 
+
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("firstName"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("lastName"));
         phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("phoneNumber"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("address"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<LibraryMemberView,String>("id"));
 
         bookTableView.setItems(DataConversion.getBookListView(Storage.session));
         memberTableView.setItems(DataConversion.getLibraryMembersView(Storage.session));
+        for(LibraryMemberView libraryMemberView: DataConversion.getLibraryMembersView(Storage.session)){
+            System.out.println(libraryMemberView.getId());
+        }
     }
 
     @FXML
@@ -93,6 +102,21 @@ public class AdminController {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("views/add_book.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add Book");
+            stage.setScene(new Scene(root, 450, 450));
+            stage.show();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void handleLogout(ActionEvent event){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/login.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Book");
             stage.setScene(new Scene(root, 450, 450));
