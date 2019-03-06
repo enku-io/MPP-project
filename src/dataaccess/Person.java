@@ -49,4 +49,8 @@ public class Person implements Serializable {
         return p;
     }
 
+    public static void logout(){
+        Storage.session = null;
+    }
+
 }

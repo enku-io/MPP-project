@@ -1,6 +1,8 @@
 package dataaccess;
 
 import com.sun.istack.internal.NotNull;
+import dataaccess.view.MemberCheckoutRecordView;
+import dataaccess.view.OverdueView;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -49,4 +51,15 @@ public abstract class PersonRole implements Serializable {
         return false;
     }
 
+    public List<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
+        return null;
+    }
+
+    public void printCheckoutRecords(List<MemberCheckoutRecordView> checkoutRecords){
+        System.out.println("Permission Denied");
+    }
+
+    public OverdueView getOverdueRecord(int isbn){
+        return null;
+    }
 }
