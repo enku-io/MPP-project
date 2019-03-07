@@ -55,7 +55,7 @@ public class Storage {
         List<Person> users = new ArrayList<>();
         users.add(new Person("aman", "1234", new Admin()));
         users.add(new Person("enku", "1234", new Librarian()));
-        users.add(new Person("mak", "1234", new Librarian()));
+        users.add(new Person("mak", "1234", new SuperAdmin()));
         Storage.users = fileHandler.readObject(USER_FNAME, users);
     }
 
