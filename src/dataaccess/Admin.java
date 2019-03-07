@@ -26,6 +26,7 @@ public class Admin extends PersonRole implements Serializable {
     public boolean addLibraryMembers(LibraryMember... libraryMember){
         Arrays.stream(libraryMember).forEach(member -> {
             int id = Storage.getNextLibraryMemberId();
+            member.setId(id);
             Storage.libraryMembers.put(id, member);
         });
         return true;
