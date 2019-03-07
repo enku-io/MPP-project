@@ -37,7 +37,7 @@ public class LibrarianCheckoutController {
                 Calendar cal = Calendar.getInstance();
                 cal.add(Calendar.MONTH,1);
                 if(Storage.session.getPersonRole().checkout(Integer.parseInt(memberId.getText()),Integer.parseInt(bookISBN.getText()), cal.getTime())){
-                    root = FXMLLoader.load(getClass().getClassLoader().getResource("views/admin.fxml"));
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("views/librarian.fxml"));
                     Stage stage = new Stage();
                     stage.setTitle("Add Member");
                     stage.setScene(new Scene(root, 450, 450));

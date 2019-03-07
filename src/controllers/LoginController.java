@@ -45,7 +45,7 @@ public class LoginController {
 
                     Stage stage = new Stage();
                     stage.setTitle("Library System - Admin");
-                    stage.setScene(new Scene(root, 450, 450));
+                    stage.setScene(new Scene(root, 1000, 600));
 
                     stage.show();
                     ((Node)(action.getSource())).getScene().getWindow().hide();
@@ -60,7 +60,7 @@ public class LoginController {
 
                     Stage stage = new Stage();
                     stage.setTitle("Library System - Librarian");
-                    stage.setScene(new Scene(root, 450, 450));
+                    stage.setScene(new Scene(root, 1000, 600));
 
                     stage.show();
                     ((Node)(action.getSource())).getScene().getWindow().hide();

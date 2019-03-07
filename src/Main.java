@@ -11,9 +11,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Storage.init();
         Parent root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Library System");
         Scene scene = new Scene(root, 795.0, 488.0);
-        scene.getStylesheets().add("DarkTheme.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

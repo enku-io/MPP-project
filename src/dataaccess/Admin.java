@@ -70,10 +70,18 @@ public class Admin extends PersonRole implements Serializable {
         if(!Storage.books.containsKey(bookId))
             return false;
         Book book = Storage.books.get(bookId);
+        List<BookCopy> bookCopies1 = new ArrayList<>();
         Arrays.stream(bookCopies).forEach(bookCopy -> {
             bookCopy.setBook(book);
+
         });
-        book.setBookCopies(Arrays.asList(bookCopies));
+
+        bookCopies1.addAll(book.getBookCopies());
+        bookCopies1.addAll(Arrays.asList(bookCopies));
+
+        book.setBookCopies(bookCopies1);
+
+
         return true;
     }
 

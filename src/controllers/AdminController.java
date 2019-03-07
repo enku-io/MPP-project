@@ -88,9 +88,9 @@ public class AdminController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("views/new_member.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Member");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 600, 700));
             stage.show();
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -104,9 +104,9 @@ public class AdminController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("views/add_book.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Add Book");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 600, 700));
             stage.show();
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -118,10 +118,25 @@ public class AdminController {
         try {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("views/login.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Add Book");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, 600, 400));
             stage.show();
             ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void handleAddBookCopy(ActionEvent event){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/add_book_copy.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add Book Copy");
+            stage.setScene(new Scene(root, 600, 500));
+            stage.show();
+//            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();
