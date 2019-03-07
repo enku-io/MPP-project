@@ -38,7 +38,7 @@ public class LoginController {
         }else if(person == null){
             usernameErrorLabel.setText("Username or Password not found");
         }else{
-            if(person.getPersonRole().getRole() == PersonRole.ADMIN_ROLE){
+            if(person.getPersonRole().getRole() == PersonRole.ADMIN_ROLE || person.getPersonRole().getRole() == PersonRole.SUPER_ADMIN_ROLE){
                 Parent root;
                 try {
                     root = FXMLLoader.load(getClass().getClassLoader().getResource("views/admin.fxml"));

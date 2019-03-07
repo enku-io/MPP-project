@@ -1,6 +1,7 @@
 package controllers;
 
 import dataaccess.LibraryMember;
+import dataaccess.PersonRole;
 import dataaccess.view.BookView;
 import dataaccess.view.LibraryMemberView;
 import javafx.collections.FXCollections;
@@ -55,6 +56,8 @@ public class AdminController {
     TableColumn idColumn;
     @FXML
     Button logoutButton;
+    @FXML
+    Button checkoutButton;
     private ObservableList<BookView> data;
 
     @FXML
@@ -79,6 +82,11 @@ public class AdminController {
         for(LibraryMemberView libraryMemberView: DataConversion.getLibraryMembersView(Storage.session)){
             System.out.println(libraryMemberView.getId());
         }
+        checkoutButton.setVisible(false);
+        if(Storage.session.getPersonRole().getRole() == PersonRole.SUPER_ADMIN_ROLE){
+            checkoutButton.setVisible(true);
+        }
+
     }
 
     @FXML
@@ -137,6 +145,21 @@ public class AdminController {
             stage.setScene(new Scene(root, 600, 500));
             stage.show();
 //            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void checkoutEvent(ActionEvent event){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("views/checkout_books.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Checkout Book");
+            stage.setScene(new Scene(root, 450, 450));
+            stage.show();
+            ((Node)(event.getSource())).getScene().getWindow().hide();
         }
         catch (IOException e) {
             e.printStackTrace();

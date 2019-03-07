@@ -13,6 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
         primaryStage.setTitle("Library System");
         Scene scene = new Scene(root, 795.0, 488.0);
+        scene.getStylesheets().add("DarkTheme.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
