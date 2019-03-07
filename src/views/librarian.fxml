@@ -20,6 +20,8 @@
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
                                     <Button fx:id="checkoutButton" layoutY="1.0" mnemonicParsing="false" onAction="#checkoutEvent" prefHeight="60.0" prefWidth="172.0" text="CHECKOUT BOOK" />
+                                    <Button layoutY="69.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="172.0" text="Checkout Record For a Member" />
+                                    <Button layoutX="-2.0" layoutY="140.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="176.0" text="Overdue List" />
                                  </children>
                               </AnchorPane>
                           </items>
@@ -54,6 +56,86 @@
                                                 </AnchorPane>
                                           </content>
                                         </Tab>
+                                          <Tab text="Members">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.1503267973856209" orientation="VERTICAL" prefHeight="308.0" prefWidth="414.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.7658536585365854" layoutY="-3.0" prefHeight="46.0" prefWidth="412.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                    <items>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField layoutX="-1.0" layoutY="1.0" prefHeight="40.0" prefWidth="311.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button layoutY="1.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="92.0" text="Search" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                    </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                               <children>
+                                                                  <TableView prefHeight="258.0" prefWidth="415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                    <columns>
+                                                                      <TableColumn prefWidth="75.0" text="C1" />
+                                                                      <TableColumn prefWidth="75.0" text="C2" />
+                                                                    </columns>
+                                                                  </TableView>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                          <Tab text="Overdue">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.16013071895424835" orientation="VERTICAL" prefHeight="308.0" prefWidth="417.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                               <children>
+                                                                  <SplitPane dividerPositions="0.711864406779661" layoutX="-2.0" layoutY="-2.0" prefHeight="48.0" prefWidth="415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                    <items>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField prefHeight="43.0" prefWidth="297.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Button layoutY="1.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="117.0" text="Search" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                    </items>
+                                                                  </SplitPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                               <children>
+                                                                  <TableView prefHeight="253.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                    <columns>
+                                                                      <TableColumn prefWidth="75.0" text="C1" />
+                                                                      <TableColumn prefWidth="75.0" text="C2" />
+                                                                    </columns>
+                                                                  </TableView>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
                                       </tabs>
                                     </TabPane>
                                  </children>
