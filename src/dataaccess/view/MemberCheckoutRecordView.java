@@ -11,12 +11,12 @@ import java.util.Date;
  */
 public class MemberCheckoutRecordView implements Serializable {
 
-    private int bookCopyId, libraryMemberId, isbn;
+    private String bookCopyId, libraryMemberId, isbn;
     private String bookTitle, fullName;
-    private Date checkoutDate, dueDate;
+    private String checkoutDate, dueDate;
 
 
-    public MemberCheckoutRecordView(int bookCopyId, int libraryMemberId, int isbn, String bookTitle, String fullName, Date checkoutDate, Date dueDate) {
+    public MemberCheckoutRecordView(String bookCopyId, String libraryMemberId, String isbn, String bookTitle, String fullName, String checkoutDate, String dueDate) {
         this.bookCopyId = bookCopyId;
         this.libraryMemberId = libraryMemberId;
         this.isbn = isbn;
@@ -28,30 +28,30 @@ public class MemberCheckoutRecordView implements Serializable {
 
     @Override
     public String toString() {
-        return libraryMemberId + " | " + bookCopyId + " | " + isbn + " | " + bookTitle + " | " + fullName + " | " + checkoutDate.toLocaleString() + " | " + dueDate.toLocaleString();
+        return libraryMemberId + " | " + bookCopyId + " | " + isbn + " | " + bookTitle + " | " + fullName + " | " + checkoutDate + " | " + dueDate;
     }
 
-    public int getBookCopyId() {
+    public String getBookCopyId() {
         return bookCopyId;
     }
 
-    public void setBookCopyId(int bookCopyId) {
+    public void setBookCopyId(String bookCopyId) {
         this.bookCopyId = bookCopyId;
     }
 
-    public int getLibraryMemberId() {
+    public String getLibraryMemberId() {
         return libraryMemberId;
     }
 
-    public void setLibraryMemberId(int libraryMemberId) {
+    public void setLibraryMemberId(String libraryMemberId) {
         this.libraryMemberId = libraryMemberId;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -71,19 +71,19 @@ public class MemberCheckoutRecordView implements Serializable {
         this.fullName = fullName;
     }
 
-    public Date getCheckoutDate() {
+    public String getCheckoutDate() {
         return checkoutDate;
     }
 
-    public void setCheckoutDate(Date checkoutDate) {
+    public void setCheckoutDate(String checkoutDate) {
         this.checkoutDate = checkoutDate;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 }

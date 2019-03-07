@@ -3,6 +3,8 @@ package dataaccess;
 import com.sun.istack.internal.NotNull;
 import dataaccess.view.MemberCheckoutRecordView;
 import dataaccess.view.OverdueView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import util.Storage;
 
 import java.io.Serializable;
@@ -53,29 +55,29 @@ public class Librarian extends PersonRole implements Serializable {
     }
 
     @Override
-    public List<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
+    public ObservableList<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
         if(Storage.checkoutRecords.containsKey(libraryMemberId)){
             CheckoutRecord checkoutRecord = Storage.checkoutRecords.get(libraryMemberId);
             List<MemberCheckoutRecordView> recordViews = new ArrayList<>();
             checkoutRecord.getEntries().forEach(checkoutRecordEntry -> {
                 recordViews.add(
                   new MemberCheckoutRecordView(
-                          checkoutRecordEntry.getBookCopy().getId(),
-                          checkoutRecord.getLibraryMember().getId(),
-                          checkoutRecordEntry.getBookCopy().getBook().getIsbn(),
+                          checkoutRecordEntry.getBookCopy().getId()+"",
+                          checkoutRecord.getLibraryMember().getId()+"",
+                          checkoutRecordEntry.getBookCopy().getBook().getIsbn()+"",
                           checkoutRecordEntry.getBookCopy().getBook().getTitle(),
                           checkoutRecordEntry.getBookCopy().getBook().getAuthors().stream()
                                   .map(author -> author.getFirstName() + " " + author.getLastName())
                           .collect(Collectors.joining("\n")),
-                          checkoutRecordEntry.getCheckoutDate(),
-                          checkoutRecordEntry.getDueDate()
+                          checkoutRecordEntry.getCheckoutDate().toLocaleString(),
+                          checkoutRecordEntry.getDueDate().toLocaleString()
                   )
                 );
             });
-            return recordViews;
+            return FXCollections.observableArrayList(recordViews);
         }else{
             System.out.println("Record don't exist");
-            return new ArrayList<>();
+            return FXCollections.observableArrayList(new ArrayList<>());
         }
     }
 
@@ -93,11 +95,12 @@ public class Librarian extends PersonRole implements Serializable {
         if(Storage.books.containsKey(isbn)){
             Book book = Storage.books.get(isbn);
             OverdueView overdueView = new OverdueView(book.getTitle(), isbn + "");
+            List<OverdueView.BookCopyView> bookCopyViews = new ArrayList<>();
             Storage.checkoutRecords.values().forEach(checkoutRecord -> {
                 checkoutRecord.getEntries().stream()
                         .filter(checkoutRecordEntry -> checkoutRecordEntry.getBookCopy().getBook().getIsbn() == isbn)
                 .forEach(checkoutRecordEntry -> {
-                    overdueView.getBookCopyViews()
+                    bookCopyViews
                             .add(new OverdueView.BookCopyView(
                                     checkoutRecordEntry.getBookCopy().getId() + "",
                                     checkoutRecord.getLibraryMember().getId() + "",
@@ -108,6 +111,7 @@ public class Librarian extends PersonRole implements Serializable {
                 });
 
             });
+            overdueView.setBookCopyViews(FXCollections.observableArrayList(bookCopyViews));
             return overdueView;
         }else{
             return null;

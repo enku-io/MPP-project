@@ -12,7 +12,9 @@ public class Main extends Application {
         Storage.init();
         Parent root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 795.0, 488.0));
+        Scene scene = new Scene(root, 795.0, 488.0);
+        scene.getStylesheets().add("./src/DarkTheme.css");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

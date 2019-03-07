@@ -3,6 +3,7 @@ package dataaccess;
 import com.sun.istack.internal.NotNull;
 import dataaccess.view.MemberCheckoutRecordView;
 import dataaccess.view.OverdueView;
+import javafx.collections.ObservableList;
 import util.Storage;
 
 import java.io.Serializable;
@@ -22,7 +23,7 @@ public class SuperAdmin extends Admin implements Serializable {
     }
 
     @Override
-    public List<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
+    public ObservableList<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
         return librarian.getRecordByMemberId(libraryMemberId);
     }
 

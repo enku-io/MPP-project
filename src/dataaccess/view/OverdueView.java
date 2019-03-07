@@ -1,5 +1,8 @@
 package dataaccess.view;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +14,7 @@ public class OverdueView {
 
     private String title;
     private String isbn;
-    private List<BookCopyView> bookCopyViews = new ArrayList<>();
+    private ObservableList<BookCopyView> bookCopyViews = FXCollections.observableArrayList(new ArrayList<>());
 
     public OverdueView(String title, String isbn) {
         this.title = title;
@@ -34,11 +37,11 @@ public class OverdueView {
         this.isbn = isbn;
     }
 
-    public List<BookCopyView> getBookCopyViews() {
+    public ObservableList<BookCopyView> getBookCopyViews() {
         return bookCopyViews;
     }
 
-    public void setBookCopyViews(List<BookCopyView> bookCopyViews) {
+    public void setBookCopyViews(ObservableList<BookCopyView> bookCopyViews) {
         this.bookCopyViews = bookCopyViews;
     }
 
