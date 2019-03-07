@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+    <children>
+        <BorderPane prefHeight="488.0" prefWidth="795.0">
+            <center>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="154.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.0" minWidth="10.0" prefWidth="441.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <BorderPane.margin>
+                        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                    </BorderPane.margin>
+                    <children>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="295.0" text="UserName" textAlignment="CENTER" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="290.0" text="Password" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+                        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="177.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="nameTextField" />
+                        <Label fx:id="usernameErrorLabel" text="Username Is required" textFill="#bf0101" visible="false" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets top="26.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <PasswordField fx:id="passwordField" />
+                        <Label fx:id="passwordErrorLabel" text="Password is required" textFill="#bf0101" visible="false" />
+                     </children>
+                     <padding>
+                        <Insets top="26.0" />
+                     </padding>
+                  </VBox>
+                    </children>
+                </GridPane>
+            </center>
+            <top>
+                <Label text="Library System" BorderPane.alignment="CENTER" />
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>
