@@ -3,6 +3,7 @@ package dataaccess;
 import com.sun.istack.internal.NotNull;
 import dataaccess.view.MemberCheckoutRecordView;
 import dataaccess.view.OverdueView;
+import javafx.collections.ObservableList;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -51,7 +52,7 @@ public abstract class PersonRole implements Serializable {
         return false;
     }
 
-    public List<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
+    public ObservableList<MemberCheckoutRecordView> getRecordByMemberId(int libraryMemberId){
         return null;
     }
 

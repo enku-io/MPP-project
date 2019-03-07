@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 public class AdminRoleTest {
 
     Admin admin = new Admin();
+    private int libraryMemberId = 80002;
 
     @Before
     public void setUp() throws Exception {
@@ -43,6 +44,11 @@ public class AdminRoleTest {
         }else{
             fail();
         }
+
+    }
+
+    @Test
+    public void EditLibraryMemberTest() {
 
     }
 
